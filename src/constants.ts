@@ -1,4 +1,5 @@
 import { version } from "../package.json";
+import { toKebabCase } from "./logic/StringHelpers";
 import type { TabItemConfig } from "./types/marketplace-types";
 
 export const MARKETPLACE_VERSION = version;
@@ -48,3 +49,12 @@ export const BLACKLIST_URL = "https://raw.githubusercontent.com/spicetify/market
 export const RELEASES_URL = "https://github.com/spicetify/marketplace/releases";
 
 export const LATEST_RELEASE_URL = "https://api.github.com/repos/spicetify/marketplace/releases/latest";
+
+/**
+ * Get a kebab-case formatted version of a tab name for use in URLs or IDs
+ * @param tabName The tab name to format
+ * @returns The formatted tab name in kebab-case
+ */
+export const formatTabName = (tabName: string): string => {
+  return toKebabCase(tabName);
+};
